@@ -9,16 +9,20 @@ import {
   searchSkillsFailure,
 } from '../actions/actionCreators';
 
-export const changeSearchEpic = action$ => action$.pipe(
+export const changeSearchEpic = (action$) => action$.pipe(
+  tap(o => console.log('111')),
   ofType(CHANGE_SEARCH_FIELD),
+  tap(o => console.log('111-2')),
   map(o => o.payload.search.trim()),
   filter(o => o !== ''),
   debounceTime(100),
   map(o => searchSkillsRequest(o))
 )
 
-export const searchSkillsEpic = action$ => action$.pipe(
+export const searchSkillsEpic = (action$) => action$.pipe(
+  tap(o => console.log('222')),
   ofType(SEARCH_SKILLS_REQUEST),
+  tap(o => console.log('222-2')),
   map(o => o.payload.search),
   map(o => new URLSearchParams({q: o})),
   tap(o => console.log(o)),

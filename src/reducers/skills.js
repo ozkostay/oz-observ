@@ -22,5 +22,5 @@ export default function skillsReducer(state = initialState, action) {
       return {...state, search};
     default:
       return state;
-}
+  }
 }

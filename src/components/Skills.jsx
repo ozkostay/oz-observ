@@ -4,6 +4,7 @@ import {changeSearchField} from '../actions/actionCreators';
 export default function Skills() {
   const {items, loading, error, search} = useSelector(state => state.skills);
   const dispatch = useDispatch();
+  
   const handleSearch = evt => {
     const {value} = evt.target;
     dispatch(changeSearchField(value));
