@@ -10,7 +10,7 @@ import {
 } from '../actions/actionCreators';
 
 export const changeSearchEpic = (action$) => action$.pipe(
-  tap(o => console.log('111')),
+  tap(o => console.log('111',action$)),
   ofType(CHANGE_SEARCH_FIELD),
   tap(o => console.log('111-2')),
   map(o => o.payload.search.trim()),
@@ -20,12 +20,12 @@ export const changeSearchEpic = (action$) => action$.pipe(
 )
 
 export const searchSkillsEpic = (action$) => action$.pipe(
-  tap(o => console.log('222')),
+  tap(o => console.log('222',action$)),
   ofType(SEARCH_SKILLS_REQUEST),
   tap(o => console.log('222-2')),
   map(o => o.payload.search),
   map(o => new URLSearchParams({q: o})),
-  tap(o => console.log(o)),
+  tap(o => console.log('URL', o)),
   switchMap(o => ajax.getJSON(`${process.env.REACT_APP_SEARCH_URL}?${o}`)),
   map(o => searchSkillsSuccess(o)),
 );

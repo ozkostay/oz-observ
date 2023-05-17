@@ -10,6 +10,7 @@ const initialState = {items: [], loading: false, error: null, search: ''};
 export default function skillsReducer(state = initialState, action) {
   switch (action.type) {
     case SEARCH_SKILLS_REQUEST:
+      console.log('redus Req');
       return {...state, loading: true, error: null};
     case SEARCH_SKILLS_FAILURE:
       const {error} = action.payload;

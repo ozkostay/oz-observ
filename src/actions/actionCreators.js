@@ -6,10 +6,12 @@ import {
  } from '../actions/actionTypes'
 
  export function searchSkillsRequest(search) {
+  console.log('actionCreate_Request',search);
   return { type: SEARCH_SKILLS_REQUEST, payload: {search} }
  }
 
  export function searchSkillsSuccess(items) {
+  console.log('actionCreate_Saccess');
   return { type: SEARCH_SKILLS_SUCCESS, payload: {items} }
  }
 
