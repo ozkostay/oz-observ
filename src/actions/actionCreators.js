@@ -15,7 +15,7 @@ import {
   return { type: SEARCH_SKILLS_SUCCESS, payload: {items} }
  }
 
- export function earchSkillsFailure(error) {
+ export function searchSkillsFailure(error) {
   return { type: SEARCH_SKILLS_FAILURE, payload: {error} }
  }
 
